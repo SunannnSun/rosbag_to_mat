@@ -73,18 +73,12 @@ for ii=1:N
     workspace_objects{ii}.H = workspace_objects_H;
 end
 
-
-
-%% Save raw data to matfile
-matfile = strcat(data_dir,'demos_nov2021_raw_data.mat');
-save(matfile,'data_rh','data_rp', 'workspace_objects', 'bags','bag_dir')
-
 %% Visualize Trajectories on Mitsubishi Workspace!!
 close all; 
 figure('Color',[1 1 1])
 
 % Plot Mitsibishi Workspace
-plotMitsubishiWorkspace(H_bottom_platform, H_workspace_table, H_base_link, workspace_objects{1}.H);
+Objects_APregions = plotMitsubishiWorkspace(H_bottom_platform, H_workspace_table, H_base_link, workspace_objects{1}.H);
 
 % Plot Demonstrations
 sample_step  = 1;
@@ -101,10 +95,12 @@ xlabel('$x_1$', 'Interpreter', 'LaTex', 'FontSize',20);
 ylabel('$x_2$', 'Interpreter', 'LaTex','FontSize',20);
 zlabel('$x_3$', 'Interpreter', 'LaTex','FontSize',20);
 title('XSens Raw Right Hand Trajectories',  'Interpreter', 'LaTex','FontSize',20)
-
-
 xlim([-0.25 1.75])
 ylim([-1.1 1.1])
 zlim([-1  1.5])
 grid on
 axis equal
+
+%% Save raw data to matfile
+matfile = strcat(data_dir,'demos_nov2021_raw_data.mat');
+save(matfile,'data_rh','data_rp', 'workspace_objects', 'Objects_APregions', 'bags','bag_dir')
