@@ -38,20 +38,20 @@ for ii=1:N
     bag = rosbag(strcat(bag_dir,bags(ii).name));
      
     % Create data structure for right hand measurements
-    data_rh{ii}      = extractPoseStamped(bag, rh_pose_topic);    
-    data_rh{ii}.name = strrep(bags(ii).name,'.bag',''); 
+    data_rh{ii}      = extractPoseStamped(bag, rh_pose_topic);     
     % Convert to base_link
     H_tmp = convert2H(data_rh{ii}.pose);
     for jj=1:size(H_tmp,3);H_tmp(:,:,jj) = inv(H_base_link)*H_tmp(:,:,jj);end
-    data_rh{ii}.pose = convert2X(H_tmp);   
+    data_rh{ii}.pose = convert2X(H_tmp);
+    data_rh{ii}.name = 'base_link';
     
     % Create data structure for right hand prop measurements
-    data_rp{ii}      = extractPoseStamped(bag, rp_pose_topic);
-    data_rp{ii}.name = strrep(bags(ii).name,'.bag','');  
+    data_rp{ii}      = extractPoseStamped(bag, rp_pose_topic); 
     % Convert to base_link
     H_tmp = convert2H(data_rp{ii}.pose);
     for jj=1:size(H_tmp,3);H_tmp(:,:,jj) = inv(H_base_link)*H_tmp(:,:,jj);end
     data_rp{ii}.pose = convert2X(H_tmp);     
+    data_rp{ii}.name = 'base_link';
     
     % Extract static workspace objects
     workspace_objects_p = zeros(7,6);
@@ -98,6 +98,7 @@ title('XSens Raw Right Hand Trajectories',  'Interpreter', 'LaTex','FontSize',20
 xlim([-0.25 1.75])
 ylim([-1.1 1.1])
 zlim([-1  1.5])
+view([62,22])
 grid on
 axis equal
 

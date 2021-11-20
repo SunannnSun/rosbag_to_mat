@@ -54,8 +54,8 @@ hold on
 
 Objects_APRegions = {};
 %%%%% Draw Pick Tray
-L = [0.43,0.32,0.20];
-P = objects_H(1:3,4,1)' - L/2  + [0 0.1 0.05]; 
+L = [0.43,0.32,0.225];
+P = objects_H(1:3,4,1)' - L/2  + [0 0.1 0.075]; 
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
 plotcube(L,O,.2,[0.0 0.0 1.0]);   % use function plotcube 
 hold on
@@ -103,10 +103,10 @@ Objects_APRegions{2}.V = V;
 
 
 %%%%% Draw Proc Station
-L = [0.20,0.20,0.20];
+L = [0.20,0.20,0.225];
 P = objects_H(1:3,4,3)' + L/2  + [-0.15 0.0 -0.15]; 
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
-plotcube(L,O,.2,[0.25 0.25 0.25]);   % use function plotcube 
+plotcube(L,O,.2,[1.0 0.0 0.0]);   % use function plotcube 
 hold on
 plot3(P(1),P(2),P(3),'*k')
 hold on
@@ -128,10 +128,10 @@ Objects_APRegions{3}.V = V;
 
 
 %%%%% Draw Check Station
-L = [0.15,0.15,0.15];
-P = objects_H(1:3,4,4)' - L/2  + [0.1 -0.0 0.05]; 
+L = [0.15,0.15,0.175];
+P = objects_H(1:3,4,4)' - L/2  + [0.1 -0.0 0.0575]; 
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
-plotcube(L,O,.2,[0.25 0.25 0.25]);   % use function plotcube 
+plotcube(L,O,.2,[0.0 1.0 0.0]);   % use function plotcube 
 hold on
 plot3(P(1),P(2),P(3),'*k')
 hold on
@@ -152,8 +152,8 @@ hold on;
 Objects_APRegions{4}.V = V;
 
 %%%%% Draw OK Tray
-L = [0.23,0.29,0.20];
-P = objects_H(1:3,4,5)' - L/2  + [0.10 0.0 0.05]; 
+L = [0.23,0.29,0.225];
+P = objects_H(1:3,4,5)' - L/2  + [0.10 0.0 0.075]; 
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
 plotcube(L,O,.2,[0.0 0.0 1.0]);   % use function plotcube 
 hold on
@@ -177,8 +177,8 @@ Objects_APRegions{5}.V = V;
 
 
 %%%%% Draw NG Tray
-L = [0.26,0.29,0.20];
-P = objects_H(1:3,4,6)' - L/2  + [0.24 0.0 0.05]; 
+L = [0.26,0.29,0.225];
+P = objects_H(1:3,4,6)' - L/2  + [0.24 0.0 0.095]; 
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
 plotcube(L,O,.2,[0.0 0.0 1.0]);   % use function plotcube 
 hold on
