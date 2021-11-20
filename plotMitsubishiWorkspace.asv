@@ -1,0 +1,97 @@
+function [] = plotMitsubishiWorkspace(baselink_H, objects_p)
+% Drawing fixed frames
+H_origin = eye(4);
+drawframe(H_origin,0.05);
+hold on;
+
+H_left_foot = eye(4);
+H_left_foot(1:3,4)  = [0.0;0.05;0.0];
+drawframe(H_left_foot,0.05);
+hold on;
+
+H_right_foot = eye(4);
+H_right_foot(1:3,4)  = [0.0;-0.05;0.0];
+drawframe(H_right_foot,0.05);
+hold on;
+
+% H_workspace_table = eye(4);
+% H_workspace_table(1:3,4)  = [0.499,-0.053,0.3750];
+% drawframe(H_workspace_table,0.05);
+% hold on;
+
+% Base link in Xsens Origin
+H03=eye(4); H03(1:3,4) = [0.0 0.0 0.01]; % base_link
+H02=eye(4); H02(1:3,4) = [0.251 -0.046 0.0];
+H01=eye(4); H01(1:3,4) = [0.0 0.0 0.835];
+H0=eye(4); H0(1:3,4) = [0.861 -0.045 0.0]; % workspace_table link
+H1= eye(4); H1(1:3,4) = [0.475, 0.0, 0.0];
+% H2= eye(4); H2(1:3,4) = [0.10, 0.00, 0.0];
+% H2(1:3,1:3) = rotationMatrx('x',180); % MATLAB/XSENS ORIGIN 
+
+H_bottom_platform = H1*H0;
+drawframe(H_bottom_platform,0.05);
+hold on;
+
+H_top_platform = H_bottom_platform*H01;
+drawframe(H_top_platform,0.05);
+hold on;
+
+H_base_link = H_top_platform*H02*H03;
+drawframe(H_top_platform,0.05);
+hold on;
+
+% Draw object frames in the workspace
+for i=1:size(objects_p,2)
+    H_object = eye(4);
+    H_object(1:3,4)  = objects_p(:,i);
+    drawframe(H_object,0.05);
+    hold on;    
+end
+
+% Draw Robot Platform
+H_bottom_platform(1,3)
+P = [H_bottom_platform(1,4),H_bottom_platform(2,4), 0.835/2];   % you center point % Origin of TAble
+L = [0.912 0.912 0.835];  % your cube dimensions 
+O = P-L/2 ;       % Get the origin of cube so that P is at center 
+plotcube(L,O,.2,[0.5 0.5 0.5]);   % use function plotcube 
+hold on
+plot3(P(1),P(2),P(3),'*k')
+hold on
+
+
+% Draw Workspace Table
+P = [0.499,-0.053,0.3750];   % you center point % Origin of TAble
+L = [0.74,1.50,0.75];  % your cube dimensions 
+O = P-L/2 ;       % Get the origin of cube so that P is at center 
+plotcube(L,O,.4,[0.5 0.5 0.5]);   % use function plotcube 
+hold on
+plot3(P(1),P(2),P(3),'*k')
+hold on
+end
+
+
+% H_tray = eye(4);
+% H_tray(1:3,4)  = objects_p(:,1);
+% drawframe(H_tray,0.05);
+% hold on;
+% 
+% H_proc = eye(4);
+% H_proc(1:3,4)   = objects_p(:,2);
+% drawframe(H_proc,0.05);
+% hold on;
+% 
+% H_check = eye(4);
+% H_check(1:3,4)  = objects_p(:,2);
+% drawframe(H_check,0.05);
+% hold on;
+% 
+% H_OK = eye(4);
+% H_OK(1:3,4)  = ;
+% drawframe(H_OK,0.05);
+% hold on;
+% 
+% 
+% H_table_origin = eye(4);
+% H_table_origin(1:3,4)  = [0.499;0.053;0.00];
+% drawframe(H_table_origin,0.05);
+% hold on;
