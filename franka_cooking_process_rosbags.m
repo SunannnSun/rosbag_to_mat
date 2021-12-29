@@ -2,8 +2,8 @@
 clear all; clc; close all
 
 %%---> MODIFY THESE DIRECTORIES
-bag_dir = '../../nov2021-datacollection-felix/bags/';
-data_dir = '../../nov2021-datacollection-felix/mat/';
+bag_dir = '../../bags/xsens-mitsubishi-nov21/';
+data_dir = '../../mat/xsens-mitsubishi-nov21/';
 bags = dir(strcat(bag_dir,'*.bag'));
 
 %% Set Topics of Interest (all of these are geometry_msgs::PoseStamped)
