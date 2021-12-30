@@ -16,7 +16,7 @@ The script ``xsens_mitsubishi_process_rosbags.m`` loads the rosbags that were re
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/mitsubishi_trajectories_APregions.png" width="500x"> 
 </p>
 
-**Note:** This script only extracts the trajectories from the saved rosbages and converts them to the robot's reference frame. 
+**Note:** This script only extracts the trajectories from the saved rosbags and converts them to the robot's reference frame. 
 
 **Trajectory Segmentation:** In order to learn individual goal-oriented motion policies (such as attractor-based Dynamical Systems)  from this data one must segment the trajectories. For this task a state-change segmentation algorithm is used to cluster trajectories corresponding to different known action proposition (AP) regions. This approach is under development/in preparation for submission by [Felix Yanwei Wang](https://yanweiw.github.io/) and [Nadia Figueroa](https://nbfigueroa.github.io/), see [dsltl](https://github.com/yanweiw/dsltl).
  
