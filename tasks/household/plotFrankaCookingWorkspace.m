@@ -88,7 +88,7 @@ Objects_APRegions{2}.V = V;
 P = H_right_bowl(1:3,4)';
 L = [0.21,0.21,0.06];
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
-plotcube(L,O,.2,[0 1 1]);   % use function plotcube 
+plotcube(L,O,.2,[0 0 1]);   % use function plotcube 
 hold on
 plot3(P(1),P(2),P(3),'*c')
 hold on
