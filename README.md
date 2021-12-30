@@ -34,7 +34,12 @@ This kinesthetic teaching example is documented in the [franka_interactive_contr
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="500x"> 
 </p>
  
-**Note:** This script only extracts the trajectories and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development/in preparation for submission.
+**Note:** This script only extracts the trajectories and converts them to the robot's reference frame. 
+
+**Trajectory Segmentation** of individual goal-oriented sub-tasks as shown below: 
+
+
+cannot be performed by tracking the gripper state. In this case an alternative state-change segmentation algorothm is necessary. Such an approach is in under development/in preparation for submission -- this can be found in the repo [dsltl](https://github.com/yanweiw/dsltl).
 
 #### Table setting task 
 Involves grasping plates/cutlery from dish rack and placing it on a table. The script ``franka_tablesetting_process_rosbags.m``loads the rosbags recorded by tracking the end-effector for the franka emika panda during kinesthetic demonstrations as shown in the kinesthetic teaching example with the  [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers/blob/main/doc/instructions/kinesthetic_teaching_recording.md) package or the [easy-kinesthetic-recording](https://github.com/nbfigueroa/easy-kinesthetic-recording) package on the ``latest-franka`` branch.
