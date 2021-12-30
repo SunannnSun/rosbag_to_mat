@@ -4,7 +4,7 @@ Adapted my old https://github.com/nbfigueroa/my_matlab_rosbag code to work with 
 Data collection is as follows:
 - Record demonstrations as time-series of geometry_msgs::PoseStamped (for position and orientation, WrenchStamped can be used for FT messages) messages in rosbags. A repo that provides useful code (for different robots) and launch files in ROS for easy data collection can be found [here](https://github.com/nbfigueroa/easy-kinesthetic-recording)
 - Extract desired messages and create trajectories of matlab structures (containing all pose information) stored in .mat. 
-- Segment Trajectories base on gripper state: Segmentation point defined when gripper is opened/closed -- useful for pick-and-place tasks!
+- **Segment Trajectories base on gripper state:** Segmentation point defined when gripper is opened/closed -- useful for pick-and-place tasks!
 ---
 
 ## Examples
