@@ -26,7 +26,7 @@ This script only extracts the trajectories from the saved rosbages and converts 
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="500x"> 
 </p>
  
-This script only extract the trajectories and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development.
+This script only extracts the trajectories and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development.
 
 - **table setting task:** grasping plates/cutlery from dish rack and placing it on a table. *To fill...*
 
