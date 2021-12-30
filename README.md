@@ -16,17 +16,16 @@ The script ``xsens_mitsubishi_process_rosbags.m`` loads the rosbags that were re
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/mitsubishi_trajectories_APregions.png" width="500x"> 
 </p>
 
-This script only extracts the trajectories from the saved rosbages and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development.
+This script only extracts the trajectories from the saved rosbages and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development/in preparation for submission.
 
 ### Household Tasks
-- **cooking preparation task:** scooping and mixing ingredients from bowls. The script ``franka_cooking_process_rosbags.m``loads the rosbags recorded by tracking the end-effector for the franka emika panda during kinesthetic demonstrations as shown [here](https://github.com/nbfigueroa/franka_interactive_controllers/blob/main/doc/instructions/kinesthetic_teaching_recording.md).
-
+- **cooking preparation task:** scooping and mixing ingredients from bowls. The script ``franka_cooking_process_rosbags.m``loads the rosbags recorded by tracking the end-effector for the franka emika panda during kinesthetic demonstrations as shown in the kinesthetic teaching example with the  [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers/blob/main/doc/instructions/kinesthetic_teaching_recording.md) package or the [easy-kinesthetic-recording](https://github.com/nbfigueroa/easy-kinesthetic-recording) package on the ``latest-franka`` branch.
 
 <p align="center">
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="500x"> 
 </p>
  
-This script only extracts the trajectories and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development.
+This script only extracts the trajectories and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development/in preparation for submission.
 
 - **table setting task:** grasping plates/cutlery from dish rack and placing it on a table. *To fill...*
 
