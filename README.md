@@ -16,30 +16,35 @@ The script ``xsens_mitsubishi_process_rosbags.m`` loads the rosbags that were re
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/mitsubishi_trajectories_APregions.png" width="500x"> 
 </p>
 
-**Note:** This script only extracts the trajectories from the saved rosbages and converts them to the robot's reference frame. Segmentation of individual goal-oriented sub-tasks is performed in the repo [dsltl](https://github.com/yanweiw/dsltl) which is still under development/in preparation for submission.
+**Note:** This script only extracts the trajectories from the saved rosbages and converts them to the robot's reference frame. 
+
+**Trajectory Segmentation:** In order to learn individual goal-oriented motion policies from this data one must segment the trajectories. For this task the state-change segmentation algorithm is used to cluster trajectories corresponding to different known action proposition (AP) regions. This approach is under development/in preparation for submission by [Felix Yanwei Wang](https://yanweiw.github.io/) and [Nadia Figueroa](https://nbfigueroa.github.io/), see [dsltl](https://github.com/yanweiw/dsltl) .
+ 
 
 ### Household Tasks
 #### Cooking preparation task 
-This task involves scooping and mixing ingredients from bowls. The script ``franka_cooking_process_rosbags.m``loads the rosbags recorded by tracking the end-effector for the franka emika panda during kinesthetic demonstrations as shown below:
+This task involves scooping and mixing ingredients from bowls. The script ``franka_cooking_process_rosbags.m`` loads the rosbags recorded by tracking the end-effector for the franka emika panda during kinesthetic demonstrations as shown below:
 
 <p align="center">
 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="375x">
-<!-- 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="400x">  -->
 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_rosbag_replay.gif" width="400x">
 </p>
 
 This kinesthetic teaching example is documented in the [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers/blob/main/doc/instructions/kinesthetic_teaching_recording.md) package or the [easy-kinesthetic-recording](https://github.com/nbfigueroa/easy-kinesthetic-recording) package on the ``latest-franka`` branch.
 
 <p align="center">
-  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="500x"> 
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="600x"> 
 </p>
- 
-**Note:** This script only extracts the trajectories and converts them to the robot's reference frame. 
-
-**Trajectory Segmentation** of individual goal-oriented sub-tasks as shown below: 
 
 
-cannot be performed by tracking the gripper state. In this case an alternative state-change segmentation algorothm is necessary. Such an approach is in under development/in preparation for submission -- this can be found in the repo [dsltl](https://github.com/yanweiw/dsltl).
+**Note:** The ``franka_cooking_process_rosbags.m`` script only extracts the trajectories as shown above. 
+
+
+**Trajectory Segmentation:** In order to learn individual goal-oriented motion policies from this data one must segment the trajectories as shown below: 
+<p align="center">
+  <img src="figs/franka_cooking_DS_s1_clustered_trajectories.png" width="306x"><img src="figs/franka_cooking_DS_s2_clustered_trajectories.png" width="302x"><img src="figs/franka_cooking_DS_s3_clustered_trajectories.png" width="300x"> 
+</p>
+For this task the state-change segmentation algorithm is used to cluster trajectories corresponding to different known action proposition (AP) regions. This approach is under development/in preparation for submission by [Felix Yanwei Wang](https://yanweiw.github.io/) and [Nadia Figueroa](https://nbfigueroa.github.io/), see [dsltl](https://github.com/yanweiw/dsltl) .
 
 #### Table setting task 
 Involves grasping plates/cutlery from dish rack and placing it on a table. The script ``franka_tablesetting_process_rosbags.m``loads the rosbags recorded by tracking the end-effector for the franka emika panda during kinesthetic demonstrations as shown in the kinesthetic teaching example with the  [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers/blob/main/doc/instructions/kinesthetic_teaching_recording.md) package or the [easy-kinesthetic-recording](https://github.com/nbfigueroa/easy-kinesthetic-recording) package on the ``latest-franka`` branch.
