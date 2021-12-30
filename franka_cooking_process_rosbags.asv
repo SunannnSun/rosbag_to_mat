@@ -60,4 +60,4 @@ axis equal
 
 %% Save raw data to matfile
 matfile = strcat(data_dir,'demos_dec2021_raw_data.mat');
-save(matfile,'data_ee_pose', 'Objects_APregions', 'bags','bag_dir')
+save(matfile,'data_rh','data_rp', 'workspace_objects', 'Objects_APregions', 'bags','bag_dir')
