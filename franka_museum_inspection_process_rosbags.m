@@ -9,12 +9,8 @@ bags = dir(strcat(bag_dir,'*.bag'));
 %% Set Topics of Interest (all of these are geometry_msgs::PoseStamped)
 
 % From Franka Emika Panda
-<<<<<<< HEAD
 ee_pose_topic         = '/franka_state_controller/O_T_EE';
 gripper_joints_topic  = '/franka_gripper/joint_states';
-=======
-ee_pose_topic      = '/franka_state_controller/O_T_EE';
->>>>>>> 7bc448ea8772a9ed6af4c133c670c5c7ce8c857f
 
 %% Read Topics from N demonstrations (bags)
 
@@ -64,9 +60,5 @@ grid on
 axis equal
 
 %% Save raw data to matfile
-<<<<<<< HEAD
 matfile = strcat(data_dir,'demos_mit_museum_raw_data.mat');
-=======
-matfile = strcat(data_dir,'demos_icra2022_raw_data.mat');
->>>>>>> 7bc448ea8772a9ed6af4c133c670c5c7ce8c857f
 save(matfile,'data_ee_pose', 'Objects_APregions', 'bags','bag_dir')
