@@ -23,23 +23,15 @@ hold on
 plot3(P(1),P(2),P(3),'*k')
 hold on
 
-
-% <<<<<<< HEAD
-% %%%%% Draw Inspection Tunnel
 P = H_inspection_tunnel(1:3,4)' + [0 0 0.025];
 L = [0.075,0.475,0.06 + 0.05];
-
-% =======
-% %%%%% Draw Inspection Tunnel
-% P = H_inspection_tunnel(1:3,4)' + [0 0 0.025];
-% L = [0.05,0.475,0.06 + 0.05];
-% >>>>>>> 7bc448ea8772a9ed6af4c133c670c5c7ce8c857f
-
 O = P-L/2 ;       % Get the origin of cube so that P is at center 
 plotcube(L,O,.2,[0 1 1]);   % use function plotcube 
 hold on
 plot3(P(1),P(2),P(3),'*c')
 hold on
+
+
 % Objects_APRegions{2}.O = O;
 % Objects_APRegions{2}.L = L;
 % % Compute vertices for convex hull

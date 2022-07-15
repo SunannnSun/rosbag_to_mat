@@ -29,22 +29,22 @@ function [] = drawframe(r, scale, alternate_color)
   
   if (isequal(zeros(3,1), p')) && (isequal(eye(3),r)),
     % use gray for the base frame
-    arrow3(p, scale*r(1:3,1), 'k');
-    arrow3(p, scale*r(1:3,2), 'k');
-    arrow3(p, scale*r(1:3,3), 'k');
+    arrow3_kin(p, scale*r(1:3,1), 'k');
+    arrow3_kin(p, scale*r(1:3,2), 'k');
+    arrow3_kin(p, scale*r(1:3,3), 'k');
     
     texts(r(1:3,1) + scale*0.05, 'x');
     texts(r(1:3,2) + scale*0.05, 'y');
     texts(r(1:3,3) + scale*0.05, 'z');    
   else    
     if alternate_color,
-      arrow3(p, scale*r(1:3,1), 'c');
-      arrow3(p, scale*r(1:3,2), 'm');
-      arrow3(p, scale*r(1:3,3), 'k');
+      arrow3_kin(p, scale*r(1:3,1), 'c');
+      arrow3_kin(p, scale*r(1:3,2), 'm');
+      arrow3_kin(p, scale*r(1:3,3), 'k');
     else
-      arrow3(p, scale*r(1:3,1), 'r');
-      arrow3(p, scale*r(1:3,2), 'g');
-      arrow3(p, scale*r(1:3,3), 'b');
+      arrow3_kin(p, scale*r(1:3,1), 'r');
+      arrow3_kin(p, scale*r(1:3,2), 'g');
+      arrow3_kin(p, scale*r(1:3,3), 'b');
     end
   end
 
