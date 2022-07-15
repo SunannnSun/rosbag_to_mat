@@ -8,7 +8,9 @@ data_dir = '../../../museum_recordings/mat/';
 bags = dir(strcat(bag_dir,'*.bag'));
 latest_bag = bags(end);
 do_plot = 1;
-sample_step = 10; % This downsampling is only for visualization!
+sample_step = 20; % This downsampling is only for visualization!
+show_robot = 1;
+is_museum = 1; %1: MIT Museum Setup, 0: PENN Figueroa Lab Setup
 
 %%%% Set Topics of Interest (all of these are geometry_msgs::PoseStamped)
 ee_pose_topic         = '/franka_state_controller/O_T_EE';
@@ -25,33 +27,12 @@ data_ee_pose = extractPoseStamped(bag, ee_pose_topic);
 
 %% Visualize Trajectories on Franka Inspection Workspace!!
 if do_plot 
-    figure('Color',[1 1 1])
-    
-    % Get Bowl Transforms (should get them from Apriltags or Optitrack for "adaptable demo")
-    [H_pickup_station, H_inspection_tunnel, H_release_station] = computeMUSEUMFrankaInspectionTransforms();
-    
-    % Plot Franka Inspection Workspace
-    Objects_APregions = plotFrankaInspectionWorkspace(H_pickup_station, H_inspection_tunnel, H_release_station);
-
-    % Extract desired variables
-    ee_traj  = data_ee_pose.pose(1:3,1:sample_step:end);   
-    
-    % Plot Cartesian Trajectories
-    scatter3(hand_traj(1,:), hand_traj(2,:), hand_traj(3,:), 7.5, 'MarkerEdgeColor','k','MarkerFaceColor',[rand rand rand]); hold on;
-    hold on;
-    xlabel('$x_1$', 'Interpreter', 'LaTex', 'FontSize',20);
-    ylabel('$x_2$', 'Interpreter', 'LaTex','FontSize',20);
-    zlabel('$x_3$', 'Interpreter', 'LaTex','FontSize',20);
-    title('Franka End-Effector Trajectories',  'Interpreter', 'LaTex','FontSize',20)
-    xlim([-0.25 1.75])
-    ylim([-1.1 1.1])
-    zlim([-1  1.5])
-    view([62,22])
-    grid on
-    axis equal
+    % Sub-sampled raw trajectories for visualization
+    ee_traj  = data_ee_pose.pose(1:3,1:sample_step:end); 
+    plotFrankaInspectionWorkspace_Trajectories(ee_traj, is_museum, show_robot)
 end
 
 %% Save raw data to matfile
 matfilename = strcat(bagname,'.mat');
 matfile = strcat(data_dir,matfilename);
-save(matfile,'data_ee_pose', 'Objects_APregions', 'bags','bag_dir')
+save(matfile,'data_ee_pose','bags','bag_dir')
