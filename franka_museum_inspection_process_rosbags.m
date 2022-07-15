@@ -6,11 +6,11 @@ clear all; clc; close all
 bag_dir = '../../../museum_recordings/bags/';
 data_dir = '../../../museum_recordings/mat/';
 bags = dir(strcat(bag_dir,'*.bag'));
-latest_bag = bags(end);
-do_plot = 1;
+latest_bag  = bags(end);
+do_plot     = 1;
 sample_step = 20; % This downsampling is only for visualization!
-show_robot = 1;
-is_museum = 1; %1: MIT Museum Setup, 0: PENN Figueroa Lab Setup
+show_robot   = 1;
+is_museum    = 1; %1: MIT Museum Setup, 0: PENN Figueroa Lab Setup
 
 %%%% Set Topics of Interest (all of these are geometry_msgs::PoseStamped)
 ee_pose_topic         = '/franka_state_controller/O_T_EE';

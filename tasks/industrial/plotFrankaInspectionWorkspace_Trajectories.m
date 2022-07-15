@@ -1,4 +1,4 @@
-function [] = plotFrankaInspectionWorkspace_Trajectories(ee_traj, is_museum, show_robot)
+function [Objects_APregions] = plotFrankaInspectionWorkspace_Trajectories(ee_traj, is_museum, show_robot)
 
     figure('Color',[1 1 1])
     
@@ -16,17 +16,18 @@ function [] = plotFrankaInspectionWorkspace_Trajectories(ee_traj, is_museum, sho
     Objects_APregions = plotFrankaInspectionWorkspace(H_pickup_station, H_inspection_tunnel, H_release_station, is_museum);  
     
     % Plot Cartesian Trajectories
-    scatter3(ee_traj(1,:), ee_traj(2,:), ee_traj(3,:), 7.5, 'MarkerEdgeColor','k','MarkerFaceColor',[rand rand rand]); hold on;
-    hold on;
+    if ~isempty(ee_traj)
+        scatter3(ee_traj(1,:), ee_traj(2,:), ee_traj(3,:), 7.5, 'MarkerEdgeColor','k','MarkerFaceColor',[rand rand rand]); hold on;
+        hold on;
+        title('Franka End-Effector Trajectories',  'Interpreter', 'LaTex','FontSize',20)
+    end
     xlabel('$x_1$', 'Interpreter', 'LaTex', 'FontSize',20);
     ylabel('$x_2$', 'Interpreter', 'LaTex','FontSize',20);
     zlabel('$x_3$', 'Interpreter', 'LaTex','FontSize',20);
-    title('Franka End-Effector Trajectories',  'Interpreter', 'LaTex','FontSize',20)
     xlim([-0.25 1.75])
     ylim([-1.1 1.1])
     zlim([-1  1.5])
     view([113,17])
-    
     grid on
     axis equal
 
