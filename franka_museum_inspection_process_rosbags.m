@@ -1,7 +1,9 @@
 %% Clear everything and Set Bag Directory
 clear all; clc; close all
 
-%%---> MODIFY THESE DIRECTORIES
+% TODO: AUTOMATE THIS FOR MUSEUM DEMO.. OPTION TO GRAB LATEST BAG OR TO USE
+% AN EXISTING ONE!!!
+
 bag_dir = '../../../museum_recordings/bags/';
 data_dir = '../../../museum_recordings/mat/';
 bags = dir(strcat(bag_dir,'*.bag'));
@@ -17,7 +19,7 @@ gripper_joints_topic  = '/franka_gripper/joint_states';
 % Extract measurements from ROSBag
 N = length(bags);
 data_ee_pose        = {};
-for ii=1:N   
+for ii=N:N   
     
     % Load one bag and visualize info
     fprintf('Reading bag %s \n',bags(ii).name);
