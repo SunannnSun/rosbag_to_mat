@@ -43,8 +43,8 @@ Objects_APRegions = {};
 
 %%%%% Draw Pickup Station
 if is_museum
-    P = H_pickup_station(1:3,4)' + [0 0 0.11];
-    L = [0.25,0.25, 0.22];
+    P = H_pickup_station(1:3,4)' + [0 0 0.13];
+    L = [0.25,0.25, 0.26];
 else
     P = H_pickup_station(1:3,4)' + [0 0 0.15];
     L = [0.22,0.22, 0.06 + 0.3];
@@ -74,8 +74,8 @@ Objects_APRegions{1}.V = V;
 
 %%%%% Draw Release Station
 if is_museum
-    P = H_release_station(1:3,4)' + [0 0 0.15];
-    L = [0.12,0.12,0.30];
+    P = H_release_station(1:3,4)' + [0 0 0.17];
+    L = [0.12,0.12,0.32];
 else
     P = H_release_station(1:3,4)' + [0 0 0.15];
     L = [0.22,0.22,0.06 + 0.3];
