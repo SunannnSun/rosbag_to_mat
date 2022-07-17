@@ -1,4 +1,6 @@
-%% Extract Topics from Latest Recorded Bag
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Script for Extracting Topics from Latest Recorded Bag         %% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear all; clc; close all
 
 %%%% Set directories (if recordings are not at the same level as catkin_ws

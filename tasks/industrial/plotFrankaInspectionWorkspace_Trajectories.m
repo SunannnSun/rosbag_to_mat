@@ -1,7 +1,11 @@
-function [Objects_APregions] = plotFrankaInspectionWorkspace_Trajectories(ee_traj, is_museum, show_robot)
+function [Objects_APregions, fhandle] = plotFrankaInspectionWorkspace_Trajectories(ee_traj, is_museum, show_robot, varargin)
+    if isempty(varargin)
+        fhandle = figure('Color',[1 1 1], 'Position',[73   551   684   411]);
+    else
+        pos = varargin{1};
+        fhandle = figure('Color',[1 1 1], 'Position',pos);
+    end
 
-    figure('Color',[1 1 1])
-    
     % Visualize Robot Arm
     if show_robot
         robot = importrobot('frankaEmikaPanda.urdf');
