@@ -27,7 +27,7 @@ hold on
 %%%%%  Draw Inspection Tunnel
 if is_museum
     P = H_inspection_tunnel(1:3,4)' + [0 0 0.07];
-    L = [0.12, 0.60, 0.14];
+    L = [0.12, 0.62, 0.14];
 else
     P = H_inspection_tunnel(1:3,4)' + [0 0 0.025];
     L = [0.075,0.475,0.06 + 0.05];
@@ -75,7 +75,7 @@ Objects_APRegions{1}.V = V;
 %%%%% Draw Release Station
 if is_museum
     P = H_release_station(1:3,4)' + [0 0 0.17];
-    L = [0.12,0.12,0.32];
+    L = [0.14,0.14,0.32];
 else
     P = H_release_station(1:3,4)' + [0 0 0.15];
     L = [0.22,0.22,0.06 + 0.3];
