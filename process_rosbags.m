@@ -1,15 +1,21 @@
 function process_rosbags(demo_name)
+
+
+    repo_path = which('process_rosbags.m');
+    repo_path = fileparts(repo_path);
+    addpath(genpath(repo_path));
+
 %     if(~isdeployed)
 %       cd(fileparts(matlab.desktop.editor.getActiveFilename));
 %     end
     % target_folder = strcat("datasets-transfer/rosbag-data/",demo_name,"/");
     % bag_dir = '../question_mark/';
-    target_folder = '../';
+    target_folder = '../log/ros_bag/';
 
 
     %%---> MODIFY THESE DIRECTORIES
     bag_dir = target_folder;
-    data_dir = '../';
+    data_dir = '../log/mat/';
     bags = dir(strcat(bag_dir,'*.bag'));
     
     %% Set Topics of Interest (all of these are geometry_msgs::PoseStamped)
